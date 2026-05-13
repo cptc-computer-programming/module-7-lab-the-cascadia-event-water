@@ -44,8 +44,8 @@ District gallons per person:
 ```
 Delivery efficiency:
 ```
-    delivery_efficiency = total_gallons_delivered / (total_gallons_delivered + total_gallons_requested) * 100
-```
+    
+```delivery_efficiency = total_gallons_delivered / (total_gallons_delivered + total_gallons_requested) * 100
 ### Outputs
 
 Your program must display:
