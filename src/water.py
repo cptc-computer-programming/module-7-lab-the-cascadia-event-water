@@ -51,4 +51,4 @@ for i, district_name in enumerate(DISTRICT_NAMES): # enumerate() returns the [in
     print(f"Average per person: {district_gallons_per_person:.1f}")
     print(f"Total gallons delivered: {total_gallons_district:.1f}")
     print(f"Total gallons requested: {district_gallons_requested:.1f}")
-    print(f"Delivery efficiency: {delivery_efficiency:.1f}\n")
+    print(f"Delivery efficiency: {delivery_efficiency:.2f}%\n")
