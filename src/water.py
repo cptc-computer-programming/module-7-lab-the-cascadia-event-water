@@ -19,17 +19,17 @@ for i, district_name in enumerate(DISTRICT_NAMES): # enumerate() returns the [in
     for shelter in range(SHELTER_COUNT):
         print(f"-- Shelter {shelter + 1} Data --")
 
-        gallons_delivered = input("Enter gallons delivered (>0): ")
+        gallons_delivered = float(input("Enter gallons delivered (>0): "))
         while gallons_delivered <= 0: # While it's invalid try again
-            gallons_delivered = input("Enter gallons delivered (>0): ")
+            gallons_delivered = float(input("Enter gallons delivered (>0): "))
 
-        people_in_shelter = input("Enter people in shelter (>0): ")
+        people_in_shelter = int(input("Enter people in shelter (>0): "))
         while people_in_shelter <= 0:
-            people_in_shelter = input("Enter people in shelter (>0): ")
+            people_in_shelter = int(input("Enter people in shelter (>0): "))
 
-        additional_gallons = input("Additional gallons requested (>=0): ")
+        additional_gallons = float(input("Additional gallons requested (>=0): "))
         while additional_gallons < 0:
-            additional_gallons = input("Additional gallons requested (>=0): ")
+            additional_gallons = float(input("Additional gallons requested (>=0): "))
 
 
 
