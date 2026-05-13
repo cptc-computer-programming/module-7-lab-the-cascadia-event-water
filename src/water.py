@@ -13,13 +13,15 @@ DISTRICT_NAMES = [
     "Steilacoom"
 ]
 
-# TODO: Process water distribution data for both districts.
-total_gallons_delivered = 0
 for i, district_name in enumerate(DISTRICT_NAMES): # enumerate() returns the [index, value] from the list
     print(f"*** District {i + 1} ({district_name}) ***") # format string for the index and name
+
+    # Set the district totals as zero before checking the shelters
     total_gallons_district = 0
     total_people = 0
-    for shelter in range(SHELTER_COUNT):
+    district_gallons_requested = 0
+
+    for shelter in range(SHELTER_COUNT): # Check over all shelters in the district
         print(f"-- Shelter {shelter + 1} Data --")
 
         gallons_delivered = float(input("Enter gallons delivered (>0): "))
@@ -34,21 +36,19 @@ for i, district_name in enumerate(DISTRICT_NAMES): # enumerate() returns the [in
         while additional_gallons < MIN_GALLONS_REQUESTED:
             additional_gallons = float(input("Additional gallons requested (>=0): "))
 
+        print(f"Gallons per person: {(gallons_delivered / people_in_shelter):.1f}\n") # \n adds another line at the end
+
+        # Add to the district totals
         total_gallons_district += gallons_delivered
-
         total_people += people_in_shelter
-    
+        district_gallons_requested += additional_gallons
+
+    # Calculated District Totals
     district_gallons_per_person = total_gallons_district / total_people
-   
+    delivery_efficiency = total_gallons_district / (total_gallons_district + district_gallons_requested) * 100
+
     print("*** District Summary ***")
-    print("Average per person: " + str(district_gallons_per_person))
-    print("Total gallons delivered:" + str(total_gallons_district ))
-
- 
-# TODO: For each district, process all shelters.
-
-# TODO: Validate all user input.
-
-# TODO: Calculate and display shelter-level and district-level results.
-
-# TODO: Print a final completion message.
+    print(f"Average per person: {district_gallons_per_person:.1f}")
+    print(f"Total gallons delivered: {total_gallons_district:.1f}")
+    print(f"Total gallons requested: {district_gallons_requested:.1f}")
+    print(f"Delivery efficiency: {delivery_efficiency:.1f}\n")
