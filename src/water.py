@@ -8,16 +8,30 @@ MIN_GALLONS_DELIVERED = 0
 MIN_PEOPLE = 1
 MIN_GALLONS_REQUESTED = 0
 
-DISTRICT_NAME = [
+DISTRICT_NAMES = [
     "Clover Park",
     "Steilacoom"
 ]
 
 # TODO: Process water distribution data for both districts.
-for district in range(DISTRICT_COUNT):
-    print(f"*** District {district + 1} ({DISTRICT_NAME[district]}) ***")
+for i, district_name in enumerate(DISTRICT_NAMES): # enumerate() returns the [index, value] from the list
+    print(f"*** District {i + 1} ({district_name}) ***") # format string for the index and name
     for shelter in range(SHELTER_COUNT):
         print(f"-- Shelter {shelter + 1} Data --")
+
+        gallons_delivered = input("Enter gallons delivered (>0): ")
+        while gallons_delivered <= 0: # While it's invalid try again
+            gallons_delivered = input("Enter gallons delivered (>0): ")
+
+        people_in_shelter = input("Enter people in shelter (>0): ")
+        while people_in_shelter <= 0:
+            people_in_shelter = input("Enter people in shelter (>0): ")
+
+        additional_gallons = input("Additional gallons requested (>=0): ")
+        while additional_gallons < 0:
+            additional_gallons = input("Additional gallons requested (>=0): ")
+
+
 
 # TODO: For each district, process all shelters.
 
